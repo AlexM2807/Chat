@@ -12,6 +12,7 @@ class ChannelVC: UIViewController {
 
     // Outlests
     @IBOutlet weak var loginBtn: NSLayoutConstraint!
+    @IBAction func prepareforUnwind(segue: UIStoryboardSegue) {}
     
     
     override func viewDidLoad() {
