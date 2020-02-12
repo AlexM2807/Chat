@@ -22,6 +22,7 @@
 		FA79843123F40F6C00E636C7 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79843023F40F6C00E636C7 /* CreateAccountVC.swift */; };
 		FA79843423F4285300E636C7 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79843323F4285300E636C7 /* AuthService.swift */; };
 		FA79843623F437A000E636C7 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79843523F437A000E636C7 /* RoundedButton.swift */; };
+		FA79843823F44C6A00E636C7 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79843723F44C6A00E636C7 /* UserDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		FA79843023F40F6C00E636C7 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		FA79843323F4285300E636C7 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		FA79843523F437A000E636C7 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		FA79843723F44C6A00E636C7 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				FA79843323F4285300E636C7 /* AuthService.swift */,
+				FA79843723F44C6A00E636C7 /* UserDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				FA79842023F3F0C800E636C7 /* ChatVC.swift in Sources */,
 				FA79840423F311BF00E636C7 /* AppDelegate.swift in Sources */,
 				FA79843423F4285300E636C7 /* AuthService.swift in Sources */,
+				FA79843823F44C6A00E636C7 /* UserDataService.swift in Sources */,
 				FA79843123F40F6C00E636C7 /* CreateAccountVC.swift in Sources */,
 				FA79843623F437A000E636C7 /* RoundedButton.swift in Sources */,
 				FA79842D23F4083F00E636C7 /* Constants.swift in Sources */,

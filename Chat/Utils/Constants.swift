@@ -20,7 +20,13 @@ let UNWIND = "unwindToChannel"
 // API
 let API_URL = "https://exilodchat.herokuapp.com/v1/"
 let API_REGISTER_USER = "\(API_URL)account/register"
+let API_LOGIN_USER = "\(API_URL)account/login"
+let API_CREATE_USER = "\(API_URL)user/add"
 
+// HEADERS
+let HEADERS = [
+    "Content-Type": "application/json; charset=utf-8"
+]
 
 // User Defaults
 let TOKEN_KEY = "token"
