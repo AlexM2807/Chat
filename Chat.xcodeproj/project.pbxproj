@@ -20,6 +20,8 @@
 		FA79842D23F4083F00E636C7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79842C23F4083F00E636C7 /* Constants.swift */; };
 		FA79842F23F40DE400E636C7 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79842E23F40DE400E636C7 /* LoginVC.swift */; };
 		FA79843123F40F6C00E636C7 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79843023F40F6C00E636C7 /* CreateAccountVC.swift */; };
+		FA79843423F4285300E636C7 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79843323F4285300E636C7 /* AuthService.swift */; };
+		FA79843623F437A000E636C7 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79843523F437A000E636C7 /* RoundedButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		FA79842C23F4083F00E636C7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FA79842E23F40DE400E636C7 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		FA79843023F40F6C00E636C7 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
+		FA79843323F4285300E636C7 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		FA79843523F437A000E636C7 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 		FA79840223F311BF00E636C7 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				FA79843223F4283900E636C7 /* Services */,
 				FA79842B23F4082300E636C7 /* Utils */,
 				FA79841E23F3F0A700E636C7 /* Model */,
 				FA79841D23F3F0A100E636C7 /* View */,
@@ -134,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				FA79842923F4004C00E636C7 /* GradinetView.swift */,
+				FA79843523F437A000E636C7 /* RoundedButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -151,6 +157,14 @@
 				FA79842C23F4083F00E636C7 /* Constants.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		FA79843223F4283900E636C7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FA79843323F4285300E636C7 /* AuthService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,7 +288,9 @@
 				FA79842F23F40DE400E636C7 /* LoginVC.swift in Sources */,
 				FA79842023F3F0C800E636C7 /* ChatVC.swift in Sources */,
 				FA79840423F311BF00E636C7 /* AppDelegate.swift in Sources */,
+				FA79843423F4285300E636C7 /* AuthService.swift in Sources */,
 				FA79843123F40F6C00E636C7 /* CreateAccountVC.swift in Sources */,
+				FA79843623F437A000E636C7 /* RoundedButton.swift in Sources */,
 				FA79842D23F4083F00E636C7 /* Constants.swift in Sources */,
 				FA79842A23F4004C00E636C7 /* GradinetView.swift in Sources */,
 				FA79842523F3FC6700E636C7 /* SWRevealViewController.m in Sources */,
