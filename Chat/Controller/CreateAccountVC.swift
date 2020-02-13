@@ -16,15 +16,17 @@ class CreateAccountVC: UIViewController {
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passTxt: UITextField!
     @IBOutlet weak var userImg: UIImageView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     // Variables
     var avatarName = "profileDefault"
     var avatarColor = "[0.5,0.5,0.5,1]"
+    var bgColor: UIColor?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupView()
         // Do any additional setup after loading the view.
     }
     
@@ -32,6 +34,10 @@ class CreateAccountVC: UIViewController {
         if UserDataService.instance.avatarName != "" {
             userImg.image = UIImage(named: UserDataService.instance.avatarName)
             avatarName = UserDataService.instance.avatarName
+            
+            if avatarName.contains("light") && bgColor == nil {
+                userImg.backgroundColor = UIColor.lightGray
+            }
         }
     }
     
@@ -47,10 +53,21 @@ class CreateAccountVC: UIViewController {
     
     // Generate random  background color to avatar
     @IBAction func pickBGColorPressed(_ sender: Any) {
+        let r = CGFloat(arc4random_uniform(255)) / 255
+        let g = CGFloat(arc4random_uniform(255)) / 255
+        let b = CGFloat(arc4random_uniform(255)) / 255
+        bgColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+        UIView.animate(withDuration: 0.2) {
+            self.userImg.backgroundColor = self.bgColor
+        }
+        self.userImg.backgroundColor = bgColor
     }
     
     // register account
     @IBAction func createAccountPressed(_ sender: Any) {
+        
+        spinner.isHidden = false
+        spinner.startAnimating()
         
         guard let email = emailTxt.text, emailTxt.text != "" else { return }
         guard let name = usernameTxt.text, usernameTxt.text != "" else { return }
@@ -65,14 +82,32 @@ class CreateAccountVC: UIViewController {
                         AuthService.instance.createUser(name: name, email: email, avatarName: self.avatarName, avatarColor: self.avatarColor) { (success) in
                             
                             if success {
-                                print("TEST ", UserDataService.instance.name )
+                                self.spinner.isHidden = true
+                                self.spinner.stopAnimating()
                                 self.performSegue(withIdentifier: UNWIND, sender: nil)
+                                NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
                             }
                         }
                     }
                 }
             }
         }
+    }
+    
+    func setupView() {
+        usernameTxt.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSAttributedString.Key.foregroundColor : defaultPlaceholder])
+      emailTxt.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSAttributedString.Key.foregroundColor : defaultPlaceholder])
+      passTxt.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor : defaultPlaceholder])
+        
+        spinner.isHidden = true
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(CreateAccountVC.handleTap))
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func handleTap() {
+        view.endEditing(true)
     }
     
 }

@@ -25,6 +25,7 @@
 		FA79843823F44C6A00E636C7 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79843723F44C6A00E636C7 /* UserDataService.swift */; };
 		FA79843A23F565E800E636C7 /* AvatarPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79843923F565E800E636C7 /* AvatarPickerVC.swift */; };
 		FA79843C23F567A500E636C7 /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79843B23F567A500E636C7 /* AvatarCell.swift */; };
+		FA79843E23F571B400E636C7 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79843D23F571B400E636C7 /* CircleImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		FA79843723F44C6A00E636C7 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		FA79843923F565E800E636C7 /* AvatarPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerVC.swift; sourceTree = "<group>"; };
 		FA79843B23F567A500E636C7 /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
+		FA79843D23F571B400E636C7 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				FA79842923F4004C00E636C7 /* GradinetView.swift */,
 				FA79843523F437A000E636C7 /* RoundedButton.swift */,
 				FA79843B23F567A500E636C7 /* AvatarCell.swift */,
+				FA79843D23F571B400E636C7 /* CircleImage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				FA79842A23F4004C00E636C7 /* GradinetView.swift in Sources */,
 				FA79842523F3FC6700E636C7 /* SWRevealViewController.m in Sources */,
 				FA79843A23F565E800E636C7 /* AvatarPickerVC.swift in Sources */,
+				FA79843E23F571B400E636C7 /* CircleImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

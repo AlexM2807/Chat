@@ -24,6 +24,12 @@ let API_REGISTER_USER = "\(API_URL)account/register"
 let API_LOGIN_USER = "\(API_URL)account/login"
 let API_CREATE_USER = "\(API_URL)user/add"
 
+//Colors
+let defaultPlaceholder = #colorLiteral(red: 0.3568627451, green: 0.6235294118, blue: 0.7960784314, alpha: 0.5)
+
+// Nofitications
+let NOTIF_USER_DATA_DID_CHANGE = Notification.Name("notifUserDataChanged")
+
 // HEADERS
 let HEADERS = [
     "Content-Type": "application/json; charset=utf-8"
