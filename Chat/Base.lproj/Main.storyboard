@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -463,6 +464,7 @@
                         <outlet property="userImg" destination="Bbd-bS-AtF" id="sv1-av-HwL"/>
                         <outlet property="usernameTxt" destination="AXf-kL-m6m" id="fo7-7p-P5V"/>
                         <segue destination="e9e-X5-rey" kind="unwind" identifier="unwindToChannel" unwindAction="prepareforUnwindWithSegue:" id="Rfp-Yt-IqG"/>
+                        <segue destination="ywR-Rf-LFK" kind="presentation" identifier="toAvatarPicker" modalPresentationStyle="fullScreen" id="luS-SF-gMU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tlq-uG-Obt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -470,12 +472,104 @@
             </objects>
             <point key="canvasLocation" x="2553.6231884057975" y="-167.41071428571428"/>
         </scene>
+        <!--Avatar PickerVC-->
+        <scene sceneID="Djv-c9-Mdn">
+            <objects>
+                <viewController id="ywR-Rf-LFK" customClass="AvatarPickerVC" customModule="Chat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pAy-5X-sIJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lna-Yr-2PJ">
+                                <rect key="frame" x="8" y="52" width="28" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="Mkm-hY-r8g"/>
+                                    <constraint firstAttribute="width" constant="28" id="R19-A3-uPz"/>
+                                </constraints>
+                                <state key="normal" image="smackBack"/>
+                                <connections>
+                                    <action selector="backPressed:" destination="ywR-Rf-LFK" eventType="touchUpInside" id="6oJ-hL-VXs"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="F5A-zC-iOL">
+                                <rect key="frame" x="127" y="94" width="160" height="32"/>
+                                <color key="backgroundColor" red="0.35686274509999999" green="0.62352941179999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="xc1-eN-AmK"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Dark"/>
+                                    <segment title="Light"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentControlChange:" destination="ywR-Rf-LFK" eventType="valueChanged" id="2AC-rn-Foa"/>
+                                </connections>
+                            </segmentedControl>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pgr-fh-6VR">
+                                <rect key="frame" x="0.0" y="145" width="414" height="717"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="er4-iH-X5E">
+                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="avatarCell" id="4cG-Qh-mXw" customClass="AvatarCell" customModule="Chat" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="0.0" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="2zO-5N-UJh">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Ii-62-gZC">
+                                                    <rect key="frame" x="10" y="10" width="80" height="80"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="8Ii-62-gZC" firstAttribute="leading" secondItem="2zO-5N-UJh" secondAttribute="leading" constant="10" id="2he-PC-Yli"/>
+                                                <constraint firstAttribute="trailing" secondItem="8Ii-62-gZC" secondAttribute="trailing" constant="10" id="UmX-lj-SHX"/>
+                                                <constraint firstItem="8Ii-62-gZC" firstAttribute="top" secondItem="2zO-5N-UJh" secondAttribute="top" constant="10" id="Z5B-Hs-dYa"/>
+                                                <constraint firstAttribute="bottom" secondItem="8Ii-62-gZC" secondAttribute="bottom" constant="10" id="mqv-4H-AXV"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="avatarImg" destination="8Ii-62-gZC" id="zWm-6T-Fek"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lna-Yr-2PJ" firstAttribute="top" secondItem="rP4-hd-0vT" secondAttribute="top" constant="8" id="3vx-3G-6Fx"/>
+                            <constraint firstItem="lna-Yr-2PJ" firstAttribute="leading" secondItem="rP4-hd-0vT" secondAttribute="leading" constant="8" id="4a1-DB-Yej"/>
+                            <constraint firstItem="F5A-zC-iOL" firstAttribute="centerX" secondItem="pAy-5X-sIJ" secondAttribute="centerX" id="KdY-Xx-rPB"/>
+                            <constraint firstItem="rP4-hd-0vT" firstAttribute="bottom" secondItem="Pgr-fh-6VR" secondAttribute="bottom" id="Uh5-Zs-DxN"/>
+                            <constraint firstItem="Pgr-fh-6VR" firstAttribute="leading" secondItem="rP4-hd-0vT" secondAttribute="leading" id="dpD-bR-wdC"/>
+                            <constraint firstItem="rP4-hd-0vT" firstAttribute="trailing" secondItem="Pgr-fh-6VR" secondAttribute="trailing" id="kgw-Nb-a1g"/>
+                            <constraint firstItem="F5A-zC-iOL" firstAttribute="top" secondItem="rP4-hd-0vT" secondAttribute="top" constant="50" id="uCg-Dk-WZJ"/>
+                            <constraint firstItem="Pgr-fh-6VR" firstAttribute="top" secondItem="F5A-zC-iOL" secondAttribute="bottom" constant="20" id="uR2-oR-AeJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rP4-hd-0vT"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="Pgr-fh-6VR" id="nJR-oa-Zff"/>
+                        <outlet property="segmentControl" destination="F5A-zC-iOL" id="Who-l8-6lc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="frp-yG-amV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3395.652173913044" y="-175.44642857142856"/>
+        </scene>
     </scenes>
     <resources>
         <image name="addChannelButton" width="22" height="22"/>
         <image name="closeButton" width="28" height="28"/>
         <image name="menuProfileIcon" width="99" height="99"/>
         <image name="profileDefault" width="192" height="192"/>
+        <image name="smackBack" width="28" height="28"/>
         <image name="smackBurger" width="40" height="40"/>
         <image name="smackLogo" width="48" height="40"/>
     </resources>
